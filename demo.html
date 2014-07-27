@@ -1,11 +1,21 @@
 <html>
 <head>
 <title>Demo of Enigma-jsCrypto</title>
+
 <script src="require.js"></script>
 <script>
-require(['lib/enigma-jscrypto'], function(crypto){
+require.config({
+    baseUrl: 'lib/',
+});
+require(['enigma-jscrypto'], function(crypto){
 });
 </script>
+
+<!--
+<script src="lib/enigma-jscrypto.js"></script>
+<script src="lib/util/index.js"></script>
+-->
+
 </head>
 <body>
 </body>
