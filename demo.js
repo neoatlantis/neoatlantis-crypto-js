@@ -1,11 +1,8 @@
 var crypto = require('./lib/enigma-jscrypto.js');
 
 function test(name, func){
-    var s = 'Testing item [' + name + '], result: ';
-    if(func())
-        s += 'OK';
-    else
-        s += 'FAILED!';
+    var s = (func()?'  OK  ':'FAILED');
+    s = '[' + s + '] Test item: ' + name;
     crypto.util.log.notice(s);
 };
 
@@ -27,7 +24,7 @@ test('Random Generator', function(){
     return 1024 == x.byteLength;
 });
 
-test('Hash Function(RIPEMD160)', function(){
+test('Hash Function (RIPEMD160)', function(){
     return (
         crypto.util.buffer.equal(
             new crypto.hash('RIPEMD160').hash(
@@ -50,7 +47,7 @@ test('Hash Function(RIPEMD160)', function(){
     );
 });
 
-test('Hash Function(WHIRLPOOL)', function(){
+test('Hash Function (WHIRLPOOL)', function(){
     return ( 
         crypto.util.buffer.equal(
             new crypto.hash('WHIRLPOOL').hash(theFoxDog).buffer,
@@ -67,6 +64,26 @@ test('Hash Function(WHIRLPOOL)', function(){
                 'C27BA124205F72E6847F3E19834F925CC666D097416' +
                 '7AF915BB462420ED40CC50900D85A1F923219D83235' +
                 '7750492D5C143011A76988344C2635E69D06F2D38C',
+                'hex'
+            ).toArrayBuffer()
+        )
+    );
+});
+
+test('Hash Function (BLAKE2s)', function(){
+    return ( 
+        crypto.util.buffer.equal(
+            new crypto.hash('BLAKE2s').hash(theFoxDog).buffer,
+            crypto.util.encoding(
+                '606beeec743ccbeff6cbcdf5d5302aa8' +
+                '55c256c29b88c8ed331ea1a6bf3c8812',
+                'hex'
+            ).toArrayBuffer()
+        ) &&
+        crypto.util.buffer.equal(
+            new crypto.hash('BLAKE2s', {length: 16}).hash(theFoxEog).buffer,
+            crypto.util.encoding(
+                '1bf0ddcbac60e4b706a0a96aaf521eee',
                 'hex'
             ).toArrayBuffer()
         )
