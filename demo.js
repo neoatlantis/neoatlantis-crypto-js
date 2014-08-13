@@ -1,4 +1,5 @@
 var crypto = require('./lib/enigma-jscrypto.js');
+
 function test(name, func){
     var s = 'Testing item [' + name + '], result: ';
     if(func())
@@ -7,19 +8,24 @@ function test(name, func){
         s += 'FAILED!';
     crypto.util.log.notice(s);
 };
-crypto.util.log.notice('----------------------');
-//////////////////////////////////////////////////////////////////////////////
-test('Random Generator', function(){
-    var x = new crypto.util.srand().bytes(1024);
-    return 1024 == x.byteLength;
-});
-
 
 var theFoxEog = crypto.util.encoding(
     '54686520717569636b2062726f776e20666f78206a7' +
     '56d7073206f76657220746865206c617a7920656f67', 
     'hex'
 ).toArrayBuffer();
+var theFoxDog = crypto.util.encoding(
+    '54686520717569636b2062726f776e20666f78206a7' +
+    '56d7073206f76657220746865206c617a7920646f67', 
+    'hex'
+).toArrayBuffer();
+
+crypto.util.log.notice('----------------------');
+//////////////////////////////////////////////////////////////////////////////
+test('Random Generator', function(){
+    var x = new crypto.util.srand().bytes(1024);
+    return 1024 == x.byteLength;
+});
 
 test('Hash Function(RIPEMD160)', function(){
     return (
@@ -45,14 +51,25 @@ test('Hash Function(RIPEMD160)', function(){
 });
 
 test('Hash Function(WHIRLPOOL)', function(){
-    return crypto.util.buffer.equal(
-        new crypto.hash('WHIRLPOOL').hash(theFoxEog).buffer,
-        crypto.util.encoding(
-            'C27BA124205F72E6847F3E19834F925CC666D097416' +
-            '7AF915BB462420ED40CC50900D85A1F923219D83235' +
-            '7750492D5C143011A76988344C2635E69D06F2D38C',
-            'hex'
-        ).toArrayBuffer()
+    return ( 
+        crypto.util.buffer.equal(
+            new crypto.hash('WHIRLPOOL').hash(theFoxDog).buffer,
+            crypto.util.encoding(
+                'B97DE512E91E3828B40D2B0FDCE9CEB3C4A71F9BEA8' +
+                'D88E75C4FA854DF36725FD2B52EB6544EDCACD6F8BE' +
+                'DDFEA403CB55AE31F03AD62A5EF54E42EE82C3FB35',
+                'hex'
+            ).toArrayBuffer()
+        ) &&
+        crypto.util.buffer.equal(
+            new crypto.hash('WHIRLPOOL').hash(theFoxEog).buffer,
+            crypto.util.encoding(
+                'C27BA124205F72E6847F3E19834F925CC666D097416' +
+                '7AF915BB462420ED40CC50900D85A1F923219D83235' +
+                '7750492D5C143011A76988344C2635E69D06F2D38C',
+                'hex'
+            ).toArrayBuffer()
+        )
     );
 });
 
