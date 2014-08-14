@@ -106,5 +106,32 @@ test('Asymmetric Cipher: Public Key Derivation', function(){
     var secret = new crypto.util.srand().bytes(128);
     var asym = crypto.cipher.asymmetric('NECRAC256');
     asym.setPrivateKey(secret);
-    console.log(crypto.util.encoding(asym.getPublicKey()).toHEX());
+    return crypto.util.encoding(asym.getPublicKey()).toHEX().length > 20;
 });
+
+test('Asymmetric Cipher: Signing and Verifying', function(){
+    var secret = new crypto.util.srand().bytes(128);
+    var asym1 = crypto.cipher.asymmetric('NECRAC256'),
+        asym2 = crypto.cipher.asymmetric('NECRAC256');
+    asym1.setPrivateKey(secret);
+    asym2.setPublicKey(asym1.getPublicKey());
+
+    var plaintext = new crypto.util.srand().bytes(1024),
+        wrong = crypto.util.buffer.xor(
+            new crypto.util.srand().bytes(1024),
+            plaintext
+        );
+
+    var signature = asym1.sign(plaintext);
+
+    return (
+        asym2.verify(plaintext, signature) &&
+        !asym2.verify(wrong, signature)
+    );
+});
+
+
+//////////////////////////////////////////////////////////////////////////////
+crypto.util.log.notice('----------------------');
+crypto.util.log.notice('All tests done.');
+process.exit();
