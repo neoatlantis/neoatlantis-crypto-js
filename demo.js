@@ -131,6 +131,21 @@ test('Asymmetric Cipher: Signing and Verifying', function(){
 });
 
 
+test('Asymmetric Cipher: Encrypting and Decrypting', function(){
+    var secret = new crypto.util.srand().bytes(128);
+    var asym1 = crypto.cipher.asymmetric('NECRAC256'),
+        asym2 = crypto.cipher.asymmetric('NECRAC256');
+    asym1.setPrivateKey(secret);
+    asym2.setPublicKey(asym1.getPublicKey());
+
+    var plaintext = new crypto.util.srand().bytes(113);
+    var ciphertext = asym2.encrypt(plaintext);
+
+    var decrypted = asym1.decrypt(ciphertext);
+    console.log(decrypted);
+});
+
+
 //////////////////////////////////////////////////////////////////////////////
 crypto.util.log.notice('----------------------');
 crypto.util.log.notice('All tests done.');
