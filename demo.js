@@ -90,7 +90,7 @@ test('Hash Function (BLAKE2s)', function(){
     );
 });
 
-/*test('Symmetric Cipher: Encryption and Decryption', function(){
+test('Symmetric Cipher: Encryption and Decryption', function(){
     var key = new crypto.util.srand().bytes(128);
     var encryptor = new crypto.cipher.symmetric().key(key),
         decryptor = new crypto.cipher.symmetric().key(key);
@@ -100,7 +100,7 @@ test('Hash Function (BLAKE2s)', function(){
     var decrypted = decryptor.decrypt(ciphertext);
 
     return crypto.util.buffer.equal(decrypted, plaintext);
-});*/
+});
 
 test('Asymmetric Cipher: Public Key Derivation', function(){
     var secret = new crypto.util.srand().bytes(128);
@@ -130,7 +130,6 @@ test('Asymmetric Cipher: Signing and Verifying', function(){
     );
 });
 
-
 test('Asymmetric Cipher: Encrypting and Decrypting', function(){
     var secret = new crypto.util.srand().bytes(128);
     var asym1 = crypto.cipher.asymmetric('NECRAC256'),
@@ -142,7 +141,7 @@ test('Asymmetric Cipher: Encrypting and Decrypting', function(){
     var ciphertext = asym2.encrypt(plaintext);
 
     var decrypted = asym1.decrypt(ciphertext);
-    console.log(decrypted);
+    return crypto.util.buffer.equal(decrypted, plaintext);
 });
 
 
