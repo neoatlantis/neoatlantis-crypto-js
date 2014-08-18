@@ -1,8 +1,13 @@
-all: cipher.t hash.t util.t
-	cat util.t cipher.t hash.t > enigma-jscrypto.js
+all: enigma-jscrypto.js
+	java -jar yuicompressor-2.4.8.jar enigma-jscrypto.js -o enigma-jscrypto.min.js	
 
 clean:
 	rm *.t
+
+
+enigma-jscrypto.js: cipher.t hash.t util.t
+	cat util.t cipher.t hash.t > main.t
+	cat makehead.js main.t maketail.js > enigma-jscrypto.js
 
 hash.t:
 	cat hash/*.js > hash.t
