@@ -1,9 +1,9 @@
 Enigma Cryptographic Library in JavaScript
 ==========================================
 
-> **NOTICE**: "Do not use home brewed library like this!" **Follow the
+> **NOTICE**: "Do not use home brewed library like this!" _Follow the
 > pedagogical instructions and use conservative and well-behaved things like
-> OpenSSL and enjoy the Spagetti and Heartbleed Flaw!**
+> OpenSSL and enjoy the Spagetti and Heartbleed Flaw!_
 
 This is to separate the cryptography library used by my `enigma` project and
 make it more easy to maintain. The library will be then made into runable on
