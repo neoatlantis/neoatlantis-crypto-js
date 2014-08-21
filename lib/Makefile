@@ -4,6 +4,9 @@ all: enigma-jscrypto.js
 clean:
 	rm *.t
 
+test: enigma-jscrypto.js
+	node test.js
+
 
 enigma-jscrypto.js: hash.t util.t cipher.t
 	#cat util.t cipher.t hash.t > main.t
