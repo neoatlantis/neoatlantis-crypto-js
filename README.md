@@ -5,6 +5,9 @@ Enigma Cryptographic Library in JavaScript
 > pedagogical instructions and use conservative and well-behaved things like
 > OpenSSL and enjoy the Spagetti and Heartbleed Flaw!_
 
+> **Unless explicitly stated, this library is otherwise still under developement.
+> The code is NOT suitable for adoption for nearly any purpose.**
+
 This is to separate the cryptography library used by my `enigma` project and
 make it more easy to maintain. The library will be then made into runable on
 both browser and NodeJS.
