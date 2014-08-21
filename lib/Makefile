@@ -11,17 +11,20 @@ enigma-jscrypto.js: hash.t util.t cipher.t
 	cat makehead.js main.t maketail.js > enigma-jscrypto.js
 	rm main.t
 
-hash.t: hash/hash.js hash/blake2s.js hash/ripemd160.js hash/whirlpool.js
-	cat hash/blake2s.js hash/ripemd160.js hash/whirlpool.js hash/hash.js > hash.t
+hash.t: hash/*.js 
+	cat hash/*.js > hash.t
 
-util.t: util/buffer.js util/encoding.js util/log.js util/random.js util/type.js
-	cat util/buffer.js util/encoding.js util/log.js util/random.js util/type.js > util.t
+util.t: util/*.js
+	cat util/*.js > util.t
 
 cipher.t: asymcipher.t symcipher.t
 	cat asymcipher.t symcipher.t > cipher.t
 
-asymcipher.t:
-	cat cipher/asymmetric/*.js > asymcipher.t
+asymcipher.t: ec.asymmetric.t cipher/asymmetric/*.js
+	cat ec.asymmetric.t cipher/asymmetric/*.js > asymcipher.t
 
-symcipher.t:
+ec.asymmetric.t: cipher/asymmetric/ec/*.js
+	cat cipher/asymmetric/ec/*.js > ec.asymmetric.t
+
+symcipher.t: cipher/symmetric/*.js
 	cat cipher/symmetric/*.js > symcipher.t
