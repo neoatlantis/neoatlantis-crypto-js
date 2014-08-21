@@ -7,7 +7,7 @@ clean:
 
 enigma-jscrypto.js: hash.t util.t cipher.t
 	#cat util.t cipher.t hash.t > main.t
-	cat hash.t > main.t
+	cat util.t hash.t > main.t
 	cat makehead.js main.t maketail.js > enigma-jscrypto.js
 	rm main.t
 
