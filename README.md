@@ -47,7 +47,33 @@ accessible via `crypto.util.srand`. The random generator uses **Salsa20**'s
 core function and captures CPU load as default input. You may use the `touch`
 method to feed more seeds, like mousemove, or user keypress.
 
-Example: _to get random bytes_
+Example 1.1: _to get random bytes_
 ```javascript
-var x = new crypto.util.srand().bytes(1024); # 1024 bytes will be returned
+var x = new crypto.util.srand().bytes(1024); // 1024 bytes will be returned
+```
+
+### 2. Hash Function
+
+The hash generator is accessible via `hash`, which is found at `hash/hash.js`.
+
+Example 2.1 _to get hash_
+```javascript
+var src = new Uint8Array([1,2,3,4,5,6,7,8]).buffer; // use `ArrayBuffer`.
+
+// choose algorithm: RIPEMD160, alternative: BLAKE2s, WHIRLPOOL.
+var result = crypto.hash('RIPEMD160').hash(src);
+
+// see: result.hex, or result.buffer
+```
+
+Currently supported algorithms are `RIPEMD160`, `BLAKE2s`, `WHIRLPOOL`. You may
+also provide the second argument to give the algorithm some hint:
+
+Example 2.2 _to get BLAKE2s generate shorter hash_
+```javascript
+var src = ... // see Example 2.1
+
+// max. digest length of BLAKE2s should be 32. It is possible to choose a
+// shorter digest length.
+var result = crypto.hash('BLAKE2s', {length: 4}).hash(src);
 ```
