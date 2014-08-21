@@ -9,8 +9,7 @@ test: enigma-jscrypto.js
 
 
 enigma-jscrypto.js: hash.t util.t cipher.t
-	#cat util.t cipher.t hash.t > main.t
-	cat util.t hash.t > main.t
+	cat util.t hash.t cipher.t > main.t
 	cat makehead.js main.t maketail.js > enigma-jscrypto.js
 	rm main.t
 
@@ -21,7 +20,8 @@ util.t: util/*.js
 	cat util/*.js > util.t
 
 cipher.t: asymcipher.t symcipher.t
-	cat asymcipher.t symcipher.t > cipher.t
+	#cat asymcipher.t symcipher.t > cipher.t
+	cat symcipher.t > cipher.t
 
 asymcipher.t: ec.asymmetric.t cipher/asymmetric/*.js
 	cat ec.asymmetric.t cipher/asymmetric/*.js > asymcipher.t
