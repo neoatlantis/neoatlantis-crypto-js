@@ -13,6 +13,10 @@ This is to separate the cryptography library used by my `enigma` project and
 make it more easy to maintain. The library will be then made into runable on
 both browser and NodeJS.
 
+The library is designed to protect small pieces of data(several hundred bytes,
+up to several megabytes) as secure as possible, but the speed is not at first.
+It may be very slow(partly because it is based on JavaScript).
+
 Features included:
 
 * A non-standard home-brew symmetric cascading cipher. Not secure and not
