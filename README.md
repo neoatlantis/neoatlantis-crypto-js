@@ -19,6 +19,20 @@ It may be very slow(partly because it is based on JavaScript).
 
 Features included:
 
+* A PGP-like(functionally alike) message center. *Planning and implementing,
+  not finished.*
+
+  * Identity manager(generating and reading identity -- public key with
+    description).
+  * Generating ciphertext with one/more identities and optionally signature.
+  * Reading ciphertext, decrypting with given identity.
+  
+  The trust chain or more features are not planned. The reason is, that the
+  author think they are beyond the layer of PGP message center. To show the
+  trust of some identity, a special formatted content should be set to the
+  PGP message body, not to design a new format of PGP message. This applies 
+  to all other applications of PGP, e.g. OTR key authentication or exchange.
+
 * A non-standard home-brew symmetric cascading cipher. Not secure and not
   consistent and do not use it ;)
 * Asymmetric cipher, also not standard. Use ECDH and ECDSA to combine and
