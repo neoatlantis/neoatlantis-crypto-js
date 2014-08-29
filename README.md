@@ -32,6 +32,7 @@ Features included:
   trust of some identity, a special formatted content should be set to the
   PGP message body, not to design a new format of PGP message. This applies 
   to all other applications of PGP, e.g. OTR key authentication or exchange.
+  In short, such features are plugins.
 
 * A non-standard home-brew symmetric cascading cipher. Not secure and not
   consistent and do not use it ;)
