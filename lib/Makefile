@@ -16,8 +16,11 @@ enigma-jscrypto.js: hash.t util.t cipher.t enigma.t
 hash.t: hash/*.js 
 	cat hash/*.js > hash.t
 
-util.t: util/*.js
-	cat util/*.js > util.t
+util.t: util.serialize.t util/*.js
+	cat util/*.js util.serialize.t > util.t
+
+util.serialize.t: util/serialize/*.js
+	cat util/serialize/*.js > util.serialize.t
 
 enigma.t: enigma/*.js
 	cat enigma/*.js > enigma.t
