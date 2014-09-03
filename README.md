@@ -46,8 +46,8 @@ Features included:
   algorithm.
 * Internal global secure(home-brewed, hopefully) random generator. Seeds
   feedable with external events.
-* All incoming/outcoming parameter are enforced in format `ArrayBuffer`. A
-  tool function for converting encoding(HEX, Base64, ArrayBuffer) is there.
+* All incoming/outcoming parameter are enforced in format `ArrayBuffer`. A tool
+  function for converting encoding(HEX, Base64, Base32, ArrayBuffer) is there.
 
 Licensed under GPLv3.
 
