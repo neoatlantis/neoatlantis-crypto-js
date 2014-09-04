@@ -8,10 +8,12 @@ test: enigma-jscrypto.js
 	node test.js
 
 
-enigma-jscrypto.js: hash.t util.t cipher.t enigma.t
-	cat util.t hash.t cipher.t enigma.t > main.t
+enigma-jscrypto.js: main.t makehead.js maketail.js
 	cat makehead.js main.t maketail.js > enigma-jscrypto.js
 	rm main.t
+
+main.t: util.t hash.t cipher.t enigma.t
+	cat util.t hash.t cipher.t enigma.t > main.t
 
 hash.t: hash/*.js 
 	cat hash/*.js > hash.t
