@@ -12,8 +12,8 @@ enigma-jscrypto.js: main.t makehead.js maketail.js
 	cat makehead.js main.t maketail.js > enigma-jscrypto.js
 	rm main.t
 
-main.t: util.t hash.t cipher.t enigma.t
-	cat util.t hash.t cipher.t enigma.t > main.t
+main.t: util.t hash.t cipher.t enigma.t accelerator.t
+	cat util.t hash.t cipher.t enigma.t accelerator.t > main.t
 
 hash.t: hash/*.js 
 	cat hash/*.js > hash.t
@@ -38,3 +38,6 @@ ec.asymmetric.t: cipher/asymmetric/ec/*.js
 
 symcipher.t: cipher/symmetric/*.js
 	cat cipher/symmetric/*.js > symcipher.t
+
+accelerator.t: accelerator/*.js
+	cat accelerator/*.js > accelerator.t
