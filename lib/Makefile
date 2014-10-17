@@ -24,8 +24,8 @@ util.t: util.serialize.t util/*.js
 util.serialize.t: util/serialize/*.js
 	cat util/serialize/*.js > util.serialize.t
 
-enigma.t: enigma/*.js
-	cat enigma/*.js > enigma.t
+enigma.t: interface.enigma.t enigma/*.js
+	cat enigma/*.js interface.enigma.t > enigma.t
 
 cipher.t: asymcipher.t symcipher.t
 	cat asymcipher.t symcipher.t > cipher.t
@@ -41,3 +41,6 @@ symcipher.t: cipher/symmetric/*.js
 
 accelerator.t: accelerator/*.js
 	cat accelerator/*.js > accelerator.t
+
+interface.enigma.t: enigma/interface/*.js
+	cat enigma/interface/*.js > interface.enigma.t
