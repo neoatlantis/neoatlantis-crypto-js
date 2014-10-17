@@ -16,6 +16,7 @@ tasks:
     * generation of private identities
     * importing of new identities, either public or private
     * exporting identities, either public or private
+    * deleting identities
 * message related jobs:
     * accept user composed message, and:
         * encrypt it to one or more another identity, and/or
@@ -39,24 +40,35 @@ unpackaging them properly is your task but also freedom).
 Usage
 =====
 
+### 1. Configure the interface
+
 It's a pity that you have to firstly configure this interface(a lot). Only so
 will you be rewarded with the factory function that generates session
 instances. Following lists all requirements. They are not options. They must be
 assigned properly(on your behave).
 
-### 1. Translation
+#### 1.1 Translation
 
 All outputs of this library **must** be translated into your language. You are
 required to set the `translation` as an assocative array.
 
-### 2. Provide a HTML5 `localStorage` compatiable data store
+#### 1.2 Provide a HTML5 `localStorage` compatiable data store
 
-### 3. Provide a main passphrase
+The system utilizes the standard `localStorage` API to store all its data. You
+are responsible to provide a `localStorage` compatiable storing component.
 
-**IMPORTANT!** This implemented system takes this main key as an encryption to
-the whole storage. Private keys within the whole storage is NOT encrypted any
-more!
 
-### 4. Provide an effictive KDF(key derivation function)
+### 2. Understanding the inputs and outputs
+
+The session instance returned by this interface as an answer to the call with
+an API name, can be imaginated as a form to be filled. The instance asks for
+value of each item, and you just forward such requests to the user and
+interprete its description. Each kind of item has a name and a description. So
+does exceptions emitted by the same.
+
+You may assign some of the variables in advance. For example, if you want a
+centeralized management of private identities instead of asking user for each
+use of a private identity, you may design your own encrypted storage and assign
+the PIN with a constant.
 
 
