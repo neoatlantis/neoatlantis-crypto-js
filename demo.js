@@ -33,7 +33,9 @@ var rl = readline.createInterface({
 
 
 session.onQuestion(function(question){
-    rl.question(question.description, function(answer){
+    rl.question('[' + question.type + '] ' + question.description + ' > ', function(answer){
+        if('boolean' == question.type)
+            return session.answer('true' === answer);
         session.answer(answer);
     });
 });
@@ -42,8 +44,9 @@ session.onError(function(error){
     console.log(error.description);
 });
 
-session.onTerminated(function(){
+session.onTerminated(function(d){
     console.log('session terminated.');
+    console.log(d);
 });
 
 
