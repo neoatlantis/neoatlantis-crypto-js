@@ -41,12 +41,13 @@ session.onQuestion(function(question){
 });
 
 session.onError(function(error){
-    console.log(error.description);
+    console.log('*** ERROR *** : ' + error.description);
 });
 
 session.onTerminated(function(d){
     console.log('session terminated.');
     console.log(d);
+    process.exit(0);
 });
 
 
