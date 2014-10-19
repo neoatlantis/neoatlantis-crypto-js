@@ -9,9 +9,18 @@ Enigma Cryptographic Library in JavaScript
 > it a lot. Do not use it to treat important files or data since
 > un-backward-compatiable modifications are predictable.**
 
-This is to separate the cryptography library used by my `enigma` project and
-make it more easy to maintain. The library will be then made into runable on
-both browser and NodeJS.
+This is a Javascript implemented library for doing a rich bunch of
+cryptographical tasks. It is primarily evolved with the idea separating the
+core tasks of **ENIGMA**, a GPG-alike application, into a self-contained
+library, but is now more than that. Now this is a library capable of 1)_doing
+symmetric encryption/decryption_, 2)_asymmetric encryption/decryption with
+ECDSA/ECDH_, 3)_hashing with Whirlpool, RIPEMD-160 and BLAKE2s_, 4)_doing
+Base32/Base64/HEX/ArrayBuffer conversion_, and notably, 5)_mimicing the PGP
+message format's idea and being used to constructing a PGP-alike system_ as
+well as 6)_providing a high-level interactive API to accomplish such
+constructions_ on both browser and server(NodeJS). The only disadvantage might
+be(I don't think it is, but some may do), that its features mimics the standard
+but does not obey them.
 
 The library is designed to protect small pieces of data(several hundred bytes,
 up to several megabytes) as secure as possible, but the speed is not at first.
