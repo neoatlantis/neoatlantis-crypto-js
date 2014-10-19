@@ -64,6 +64,8 @@ Licensed under GPLv3.
 
 ## API Overview
 
+> This section is not complete because of currently progressing development.
+
 The primary data type used in this library is `ArrayBuffer`. That being said,
 what you feed to hash, to encrypt, are `ArrayBuffer`s. This is mandatory. The
 outputs are mostly also of this type.
