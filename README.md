@@ -12,29 +12,31 @@ Enigma Cryptographic Library in JavaScript
 This is a Javascript implemented library for doing a rich bunch of
 cryptographical tasks. It is primarily evolved with the idea separating the
 core tasks of **ENIGMA**, a GPG-alike application, into a self-contained
-library, but is now more than that. Now this is a library capable of 1)_doing
-symmetric encryption/decryption_, 2)_asymmetric encryption/decryption with
-ECDSA/ECDH_, 3)_hashing with Whirlpool, RIPEMD-160 and BLAKE2s_, 4)_doing
-Base32/Base64/HEX/ArrayBuffer conversion_, and notably, 5)_mimicing the PGP
-message format's idea and being used to constructing a PGP-alike system_ as
-well as 6)_providing a high-level interactive API to accomplish such
-constructions_ on both browser and server(NodeJS). The only disadvantage might
-be(I don't think it is, but some may do), that its features mimics the standard
-but does not obey them.
+library, but is now more than that. To see a list of its features, continue
+reading.
 
-The library is designed to protect small pieces of data(several hundred bytes,
-up to several megabytes) as secure as possible, but the speed is not at first.
-It may be very slow(partly because it is based on JavaScript).
+Disadvantages are: 
+
+* (I don't think it is, but some may do)features of this library mimics the
+  standard implementations but does not obey them.
+* The library is designed to protect small pieces of data(several hundred
+  bytes, up to several megabytes) as secure as possible, but the speed is not
+  at first.  It may be very slow(partly because it is based on JavaScript).
 
 Features included:
 
-* A PGP-like(functionally alike) message center. *Planning and implementing,
-  not finished.*
-
-  * Identity manager(generating and reading identity -- public key with
-    description).
-  * Generating ciphertext with one/more identities and optionally signature.
-  * Reading ciphertext, decrypting with given identity.
+* A PGP-like(functionally alike) message system. *implementing, not finished.*
+  * based on _identities_, which are like PGP-keys but more simple.
+  * the functions for generating, reading, exporting and using an _identity_ is
+    provided, as well as functions for generating(by signing and/or encrypting)
+    messages or reading(by decrypting and verifying) messages are provided.
+  * **an interactive high-level API** for a complete solution of constructing a
+    PGP-alike system based on localStorage-compatiable APIs is under working.
+    You may use this to build up your own application very quickly without
+    dealing with the complex cryptographics.
+    All you have to do is providing a localStorage(preferably secured with
+    encryption, on your behave), a translator(for errors and questions given by
+    API).
   
   The trust chain or more features are not planned. The reason is, that the
   author think they are beyond the layer of PGP message center. To show the
