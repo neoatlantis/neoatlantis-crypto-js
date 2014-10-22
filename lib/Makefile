@@ -8,7 +8,7 @@ test: enigma-jscrypto.js
 	node test.js
 
 test-enigma: enigma-jscrypto.js ../demo.js
-	node ../demo.js identity-generate
+	node ../demo.js
 
 
 enigma-jscrypto.js: main.t makehead.js maketail.js

@@ -1,3 +1,14 @@
+var apiNameList = [
+    'identity-generate',
+    'identity-list',
+];
+
+var readline = require('readline');
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+
 var translate = {
     error: function(v){return v},
     question: function(v){return v},
@@ -13,8 +24,18 @@ localStorage.initSync({
     interval: false,
 });
 
-var apiName = argv[2];
 
+var menu = '';
+for(var i=0; i<apiNameList.length; i++)
+    menu += i.toString() + ': ' + apiNameList[i] + '\n';
+rl.question('Select an option:\n' + menu, function(answer){
+    var select = apiNameList[parseInt(answer, 10)];
+    if(!select) process.exit(1);
+    proc(select);
+});
+
+//////////////////////////////////////////////////////////////////////////////
+function proc(apiName){
 
 
 var enigma = crypto.enigma.interface({
@@ -24,11 +45,6 @@ var enigma = crypto.enigma.interface({
 
 var session = enigma(apiName);
 
-var readline = require('readline');
-var rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
 
 
 
@@ -52,3 +68,8 @@ session.onTerminated(function(d){
 
 
 session.start();
+
+
+////
+};
+//////////////////////////////////////////////////////////////////////////////
