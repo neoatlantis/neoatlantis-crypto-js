@@ -15,14 +15,10 @@ var translate = {
 }
 
 var argv = process.argv;
-var crypto = require('./lib/enigma-jscrypto.js'),
-    localStorage = require('node-persist');
+var crypto = require('./lib/enigma-jscrypto.js');
 
-localStorage.initSync({
-    dir: './test',
-    continous: true,
-    interval: false,
-});
+var LocalStorage = require('node-localstorage').LocalStorage;
+var localStorage = new LocalStorage('./.localStorage');
 
 
 var menu = '';
