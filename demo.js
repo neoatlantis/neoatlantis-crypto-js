@@ -1,7 +1,12 @@
 var apiNameList = [
-    'identity-generate',
     'identity-list',
+    'identity-generate',
+//    'identity-import',
+//    'identity-export',
     'identity-delete',
+
+//    'message-write',
+//    'message-read',
 ];
 
 var readline = require('readline');
