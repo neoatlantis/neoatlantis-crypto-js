@@ -2,7 +2,7 @@ var apiNameList = [
     'identity-list',
     'identity-generate',
 //    'identity-import',
-//    'identity-export',
+    'identity-export',
     'identity-delete',
 
 //    'message-write',
