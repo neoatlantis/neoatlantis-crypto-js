@@ -6,7 +6,7 @@ var apiNameList = [
     'identity-delete',
 
     'message-write',
-//    'message-read',
+    'message-read',
 ];
 
 var readline = require('readline');
