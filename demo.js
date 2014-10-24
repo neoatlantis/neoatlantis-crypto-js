@@ -68,6 +68,8 @@ session.onTerminated(function(d){
     process.exit(0);
 });
 
+session.assign('text.passphrase', 'DEADBEEFDEADBEEFDEADBEEFDEADBEEF');
+
 
 session.start();
 
