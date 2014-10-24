@@ -5,7 +5,7 @@ var apiNameList = [
     'identity-export',
     'identity-delete',
 
-//    'message-write',
+    'message-write',
 //    'message-read',
 ];
 
