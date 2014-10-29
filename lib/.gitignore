@@ -1,3 +1,4 @@
 *.t
 *.jar
 .localStorage
+enigma-jscrypto*.js
