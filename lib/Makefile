@@ -1,8 +1,12 @@
 all: enigma-jscrypto.js
-	java -jar yuicompressor-2.4.8.jar enigma-jscrypto.js -o enigma-jscrypto.min.js	
+	java -jar yuicompressor-2.4.8.jar enigma-jscrypto.js -o enigma-jscrypto.min.js
+	rm -f *.t
 
 clean:
 	rm -f *.t
+
+clear: 
+	rm -f *.t 
 	rm -f enigma-jscrypto.js enigma-jscrypto.min.js
 
 test: enigma-jscrypto.js
