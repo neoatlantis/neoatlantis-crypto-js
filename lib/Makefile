@@ -15,6 +15,8 @@ test: enigma-jscrypto.js
 test-enigma: enigma-jscrypto.js ../demo.js
 	node ../demo.js
 
+test-enigma-intensive: enigma-jscrypto.js test-enigma.js
+	node test-enigma.js
 
 enigma-jscrypto.js: main.t makehead.js maketail.js
 	cat makehead.js main.t maketail.js > enigma-jscrypto.js
