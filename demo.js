@@ -69,6 +69,8 @@ session.onTerminated(function(d){
 });
 
 session.assign('text.passphrase', 'DEADBEEFDEADBEEFDEADBEEFDEADBEEF');
+session.assign('text.save-passphrase', 'DEADBEEFDEADBEEFDEADBEEFDEADBEEF');
+session.assign('text.read-passphrase', 'DEADBEEFDEADBEEFDEADBEEFDEADBEEF');
 
 
 session.start();
