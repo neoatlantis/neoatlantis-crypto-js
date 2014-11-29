@@ -17,5 +17,5 @@ library, but is **far** now more than that.
 Rather sophiscated documentations available in different languages, and there
 will be no updates here. Please move to:
     
-    * [English version](https://neoatlantis.github.io/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E5%8F%8A%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/2014/11/01/neoatlantis-crypto-js-en.html)
-    * [简体中文文档](https://neoatlantis.github.io/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E5%8F%8A%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/2014/11/01/neoatlantis-crypto-js-zh.html)
+* [English version](https://neoatlantis.github.io/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E5%8F%8A%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/2014/11/01/neoatlantis-crypto-js-en.html)
+* [简体中文文档](https://neoatlantis.github.io/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E5%8F%8A%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF/2014/11/01/neoatlantis-crypto-js-zh.html)
