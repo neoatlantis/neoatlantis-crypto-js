@@ -21,7 +21,7 @@ var translate = {
 }
 
 var argv = process.argv;
-var crypto = require('./lib/enigma-jscrypto.js');
+var crypto = require('./lib/neoatlantis-crypto-js.js');
 
 var LocalStorage = require('node-localstorage').LocalStorage;
 var localStorage = new LocalStorage('./.localStorage');
