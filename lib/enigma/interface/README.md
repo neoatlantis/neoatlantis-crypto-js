@@ -50,12 +50,12 @@ assigned properly(on your behave).
 #### 1.1 Translation
 
 All outputs of this library **must** be translated into your language. You are
-required to set the `translation` as an assocative array.
+required to set the `translation` as an associative array.
 
-#### 1.2 Provide a HTML5 `localStorage` compatiable data store
+#### 1.2 Provide a HTML5 `localStorage` compatible data store
 
 The system utilizes the standard `localStorage` API to store all its data. You
-are responsible to provide a `localStorage` compatiable storing component.
+are responsible to provide a `localStorage` compatible storing component.
 
 
 ### 2. Understanding the inputs and outputs
@@ -67,8 +67,6 @@ interprete its description. Each kind of item has a name and a description. So
 does exceptions emitted by the same.
 
 You may assign some of the variables in advance. For example, if you want a
-centeralized management of private identities instead of asking user for each
+centralized management of private identities instead of asking user for each
 use of a private identity, you may design your own encrypted storage and assign
 the PIN with a constant.
-
-
