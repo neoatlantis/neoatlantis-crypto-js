@@ -5,8 +5,8 @@ all: neoatlantis-crypto-js.js
 clean:
 	rm -f *.t
 
-clear: 
-	rm -f *.t 
+clear:
+	rm -f *.t
 	rm -f neoatlantis-crypto-js.js neoatlantis-crypto-js.min.js
 
 test: neoatlantis-crypto-js.js
@@ -22,10 +22,13 @@ neoatlantis-crypto-js.js: main.t makehead.js maketail.js
 	cat makehead.js main.t maketail.js > neoatlantis-crypto-js.js
 	rm main.t
 
-main.t: util.t hash.t cipher.t enigma.t accelerator.t
-	cat util.t hash.t cipher.t enigma.t accelerator.t > main.t
+main.t: util.t hash.t cipher.t enigma.t accelerator.t test.t
+	cat util.t hash.t cipher.t enigma.t accelerator.t test.t > main.t
 
-hash.t: hash/*.js 
+test.t: test/*.js
+	cat test/*.js > test.t
+
+hash.t: hash/*.js
 	cat hash/*.js > hash.t
 
 util.t: util.serialize.t util/*.js
