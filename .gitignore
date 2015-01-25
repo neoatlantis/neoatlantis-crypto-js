@@ -1,3 +1,4 @@
 *.sw?
 require.js
 node_modules
+*localStorage*
