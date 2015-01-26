@@ -10,13 +10,14 @@ NeoAtlantis JS Crypto Library
 > un-backward-compatiable modifications are predictable.**
 
 This is a JavaScript implemented library for doing a rich bunch of
-cryptographic tasks(listed [below](#overview)).
+cryptographic tasks(listed [below](#overview)). It's intended for another
+larger project(see [intention](#intention)).
 
-The library is self-contained. All stated functions have native
-implementations. However under extensions, the library can also detect and use
-local functions for accelerating, for example when under NodeJS and doing
-hashing, or under [a python based fullscreen webkit browser] [FSB] and use an
-external random source.
+The library is self-contained. All stated functions have native codes.
+Moreover, under extensions, the library can also detect and use local functions
+for accelerating, for example when under NodeJS and doing hashing, or under
+[a python based fullscreen webkit browser] [FSB] and use an external random
+source.
 
 [FSB]: https://github.com/neoatlantis/enigma-fsbrowser
 
@@ -60,3 +61,24 @@ Here is only a brief overview of functions provided by this library.
     * Salsa20
     * ChaCha20
     * ...
+
+
+Intention
+---------
+
+This library is **not** intended providing another bunch of standardized
+functions for your cryptographic work. It may not comply with standards,
+especially in data formats. This is a critical library for a system.
+
+I decided to write a system, possibly running on embedded system but also may
+not, to do critical things for a secure communication. Modern communication
+softwares, like Instant Messaging softwares, may use extensions to send
+'offers' to this isolated server, and get plaintexts encrypted(plaintext may
+be created before sending to this server, or may be edited on the screen of
+this secure system). Decryption does the reverse: ciphertext sent to this
+system, and user or predefined policy decides whether to forward the decrypted
+plaintext to the outside world.
+
+In short, this system is a crypto module, similar to PGP or smart cards, but
+with some up-to-date algorithms. It's not designed to be fast with large
+files, but secure.
