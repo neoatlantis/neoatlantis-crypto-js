@@ -10,9 +10,7 @@ NeoAtlantis JS Crypto Library
 > un-backward-compatiable modifications are predictable.**
 
 This is a JavaScript implemented library for doing a rich bunch of
-cryptographic tasks. It is primarily evolved with the idea separating the core
-tasks of **ENIGMA**, a GPG-alike application, into a self-contained library,
-but is **far** now more than that.
+cryptographic tasks(listed [below](#overview)).
 
 The library is self-contained. All stated functions have native
 implementations. However under extensions, the library can also detect and use
